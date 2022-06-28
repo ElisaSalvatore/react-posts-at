@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Post from './components/FbPost'
 import './App.css';
 
 function App() {
+  const [posts, setPosts] = useState([
+    {author: "Elisa" , description: "Sto imparando React"},
+    {author: "Mike" , description: "Sto registrando un video"},
+    {author: "Andrea" , description: "Sto guardando un video"},
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {posts.map((post) => (
+        <Post author={post.author} description={post.description}/>
+      ))}
+      
     </div>
   );
 }
